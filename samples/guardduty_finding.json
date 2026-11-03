@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "2.0",
+  "accountId": "123456789012",
+  "region": "eu-west-1",
+  "type": "CryptoCurrency:EC2/BitcoinTool.B!DNS",
+  "resource": {
+    "resourceType": "Instance",
+    "instanceDetails": {
+      "instanceId": "i-0987654321abcdef0",
+      "instanceType": "m5.large",
+      "launchTime": "2026-11-01T10:00:00Z",
+      "tags": [
+        {"key": "Environment", "value": "Production"},
+        {"key": "Role", "value": "BatchWorker"}
+      ]
+    }
+  },
+  "service": {
+    "serviceName": "guardduty",
+    "detectorId": "d-1234567890abcdef",
+    "action": {
+      "actionType": "DNS_REQUEST",
+      "dnsRequestAction": {
+        "domain": "pool.crypto-mining-botnet.org"
+      }
+    },
+    "count": 42
+  },
+  "severity": 8.5,
+  "createdAt": "2026-11-03T01:20:00Z",
+  "title": "EC2 instance querying known cryptocurrency mining DNS pool"
+}
