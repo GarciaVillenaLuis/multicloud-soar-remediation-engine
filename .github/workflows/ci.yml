@@ -14,6 +14,7 @@ jobs:
       - name: Execute Automated Playbook Dry-Runs
         run: |
           python multicloud_soar_engine.py --stats
+          python multicloud_soar_engine.py --list-playbooks
           python multicloud_soar_engine.py --alert samples/guardduty_finding.json
           python multicloud_soar_engine.py --alert samples/sentinel_incident.json
           python multicloud_soar_engine.py --playbook PLAYBOOK-BLOCK-STORAGE --target-id secure-prod-data-bucket
