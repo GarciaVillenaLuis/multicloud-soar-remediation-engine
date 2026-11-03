@@ -69,6 +69,15 @@ class TestMultiCloudSoarEngine(unittest.TestCase):
         with self.assertRaises(KeyError):
             self.engine_dry.execute_playbook("INVALID-PLAYBOOK-XYZ", {"id": "none"})
 
+    def test_list_playbooks(self):
+        pbs = self.engine_dry.list_playbooks()
+        self.assertEqual(len(pbs), 4)
+        pb_ids = [p["playbook_id"] for p in pbs]
+        self.assertIn("PLAYBOOK-ISO-COMPUTE", pb_ids)
+        self.assertIn("PLAYBOOK-REVOKE-IAM", pb_ids)
+        self.assertIn("PLAYBOOK-BLOCK-STORAGE", pb_ids)
+        self.assertIn("PLAYBOOK-FORENSIC-SNAPSHOT", pb_ids)
+
 
 if __name__ == "__main__":
     unittest.main()
