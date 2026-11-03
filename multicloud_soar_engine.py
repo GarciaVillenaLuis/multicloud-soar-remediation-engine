@@ -49,6 +49,15 @@ class MultiCloudSoarEngine:
     def __init__(self, dry_run: bool = True):
         self.dry_run = dry_run
 
+    def list_playbooks(self) -> List[Dict[str, Any]]:
+        """Returns catalog of all registered automated containment playbooks."""
+        catalog = []
+        for pid, meta in self.MITRE_D3FEND_MAPPINGS.items():
+            entry = dict(meta)
+            entry["playbook_id"] = pid
+            catalog.append(entry)
+        return catalog
+
     def parse_alert(self, alert_json: str) -> Dict[str, Any]:
         """Parses alert telemetry from GuardDuty, Sentinel, or GCP SCC."""
         try:
@@ -192,6 +201,8 @@ def main():
     parser = argparse.ArgumentParser(
         description="Autonomous Multi-Cloud SOAR Remediation Engine CLI"
     )
+    parser.add_argument("--list-playbooks", action="store_true",
+                        help="List all registered containment playbooks and MITRE D3FEND mappings")
     parser.add_argument("--alert", "-a", help="Path to GuardDuty, Sentinel, or SCC alert JSON file")
     parser.add_argument("--playbook", "-p", choices=[
         "PLAYBOOK-ISO-COMPUTE", "PLAYBOOK-REVOKE-IAM", "PLAYBOOK-BLOCK-STORAGE", "PLAYBOOK-FORENSIC-SNAPSHOT"
@@ -207,6 +218,19 @@ def main():
 
     args = parser.parse_args()
     engine = MultiCloudSoarEngine(dry_run=not args.live)
+
+    if args.list_playbooks:
+        playbooks = engine.list_playbooks()
+        if args.format == "json":
+            print(json.dumps(playbooks, indent=2))
+        else:
+            print("-" * 92)
+            print(f"{'PLAYBOOK ID':<28} | {'D3FEND':<10} | {'NAME':<48}")
+            print("-" * 92)
+            for pb in playbooks:
+                print(f"{pb['playbook_id']:<28} | {pb['d3fend_id']:<10} | {pb['name']:<48}")
+            print("-" * 92)
+        return
 
     if args.stats:
         metrics_file = os.path.join(os.path.dirname(__file__), "playbooks", "soar_execution_metrics.json")
