@@ -1,6 +1,7 @@
 # Autonomous Multi-Cloud SOAR Remediation Engine ⚡🛡️
 
 [![CI/CD Pipeline](https://github.com/GarciaVillenaLuis/multicloud-soar-remediation-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/GarciaVillenaLuis/multicloud-soar-remediation-engine/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/GarciaVillenaLuis/multicloud-soar-remediation-engine/actions/workflows/codeql.yml/badge.svg)](https://github.com/GarciaVillenaLuis/multicloud-soar-remediation-engine/actions/workflows/codeql.yml)
 [![SOAR Automation](https://img.shields.io/badge/SOAR-Autonomous%20Incident%20Response-success?style=flat-square&logo=shield&logoColor=white)](https://github.com/GarciaVillenaLuis/multicloud-soar-remediation-engine)
 [![Framework](https://img.shields.io/badge/Defense-MITRE%20D3FEND-red?style=flat-square&logo=target&logoColor=white)](https://d3fend.mitre.org/)
 [![NIST Compliance](https://img.shields.io/badge/Security-NIST%20SP%20800--61%20Rev%202-orange?style=flat-square)](https://csrc.nist.gov/)
