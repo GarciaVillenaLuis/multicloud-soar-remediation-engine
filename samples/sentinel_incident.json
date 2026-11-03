@@ -1,0 +1,14 @@
+{
+  "IncidentNumber": 1042,
+  "Title": "Compromised Azure AD Account Executing Abnormal API Calls",
+  "Severity": "High",
+  "Status": "Active",
+  "Entities": [
+    {
+      "Type": "account",
+      "AccountName": "ciso-compromised@enterprise.onmicrosoft.com",
+      "AadUserId": "d5a892b1-4c12-4f38-9e12-88123abcdef4"
+    }
+  ],
+  "Description": "Anomalous mass credential operations observed from untrusted geolocation."
+}
