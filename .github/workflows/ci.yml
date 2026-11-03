@@ -1,0 +1,20 @@
+name: CI & Multi-Cloud SOAR Pipeline
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run Unit Tests
+        run: python -m unittest discover -s tests -p "test_*.py"
+      - name: Execute Automated Playbook Dry-Runs
+        run: |
+          python multicloud_soar_engine.py --stats
+          python multicloud_soar_engine.py --alert samples/guardduty_finding.json
+          python multicloud_soar_engine.py --alert samples/sentinel_incident.json
+          python multicloud_soar_engine.py --playbook PLAYBOOK-BLOCK-STORAGE --target-id secure-prod-data-bucket
+          python multicloud_soar_engine.py --playbook PLAYBOOK-FORENSIC-SNAPSHOT --target-id i-0987654321
