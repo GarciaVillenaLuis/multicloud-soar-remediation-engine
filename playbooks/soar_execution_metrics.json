@@ -16,6 +16,6 @@
   },
   "status": "OPERATIONAL",
   "test_ts": "2026-11-25T16:21:21.861Z",
-  "last_sync_utc": "2026-11-19T09:07:13Z",
-  "mosaic_seq": 9
+  "last_sync_utc": "2026-11-23T08:00:00Z",
+  "mosaic_seq": 10
 }
