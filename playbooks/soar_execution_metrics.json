@@ -14,5 +14,6 @@
     "active_containment_playbooks": 4,
     "rollbacks_required": 1
   },
-  "status": "OPERATIONAL"
+  "status": "OPERATIONAL",
+  "test_ts": "2026-11-25T16:21:21.861Z"
 }
