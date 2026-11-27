@@ -1,5 +1,5 @@
 {
-  "last_audit_utc": "2026-11-20T07:30:15.141Z",
+  "last_audit_utc": "2026-11-27T07:30:37.225Z",
   "soar_engine_version": "1.8.0",
   "architecture": "Serverless Multi-Cloud Security Orchestration, Automation & Response",
   "supported_connectors": [
@@ -8,14 +8,11 @@
     "Google Cloud SCC"
   ],
   "telemetry": {
-    "total_incidents_orchestrated": 538,
-    "mean_time_to_contain_seconds": 18,
+    "total_incidents_orchestrated": 541,
+    "mean_time_to_contain_seconds": 18.1,
     "automated_remediation_success_rate": 0.998,
     "active_containment_playbooks": 4,
     "rollbacks_required": 1
   },
-  "status": "OPERATIONAL",
-  "test_ts": "2026-11-25T16:21:21.861Z",
-  "last_sync_utc": "2026-11-25T12:28:52Z",
-  "mosaic_seq": 14
+  "status": "OPERATIONAL"
 }
